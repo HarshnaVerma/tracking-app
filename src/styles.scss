@@ -1,0 +1,253 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~igniteui-angular/lib/core/styles/themes/index';
+@import "~angular-vertical-timeline/dist/vertical-timeline.css";
+
+
+@include igx-core();
+@include igx-theme($default-palette, $legacy-support: true);
+
+.picture-upload {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  right: 0;
+  opacity: 0;
+}
+
+.picture {
+  position: relative;
+  padding: 25px 10px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.upload-button-padding {
+  padding: 10px;
+}
+
+.visibility-hidden {
+  visibility: hidden;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.table-cell-images {
+  width: 36px;
+  height: auto;
+  padding: 5px 0 6px 0;
+}
+
+.table-image-border {
+  border-radius: 15% !important;
+}
+
+.driver-image-size {
+  width: 160px !important;
+  height: 160px;
+}
+
+.id-proof-picture-img {
+  width: 280px;
+  height: 200px;
+}
+
+
+.custom-modalbox {
+  mat-dialog-container {
+    padding: 10px 0 0 0;
+  }
+}
+
+.dialog-heading {
+  margin-top: -20px;
+  margin-left: 20px;
+}
+
+.dialog-heading-font {
+  font-size: larger;
+}
+
+
+.backdropBackground {
+  background-color: black;
+  opacity: 0.7 !important;
+}
+
+.id-proof-picture-dialog-img {
+  width: 270px;
+  height: 200px;
+}
+
+//.card .card-header {
+//  background-color: #2f3c4e !important;
+//  border-bottom: none;
+//  padding: 21px !important;
+//  /* border-bottom: 1px solid #f6f7fb; */
+//  border-top-left-radius: 8px;
+//  border-top-right-radius: 8px;
+//}
+
+.card-header-title {
+  color: black;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.full-width {
+  width: 100%;
+}
+
+label {
+  width: 100%;
+}
+
+.igx-tabs__item-label {
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.left {
+  position: absolute;
+  width: 82px;
+}
+
+.middle {
+  position: absolute;
+  left: 85px;
+  right: 40px;
+}
+
+.text {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.address-holder {
+  padding-top: 4px;
+}
+
+.far-right {
+  position: absolute;
+  right: 20px;
+  text-align: center;
+  top: 15px;
+}
+
+.driver-info-list {
+  padding: 8px 0 0 5px;
+}
+
+.driver-name-list {
+  font-size: 14px;
+  color: #000;
+  font-weight: 600;
+}
+
+.shadow-info {
+  letter-spacing: 1px;
+  color: #8b8888;
+  font-size: 10px;
+}
+
+.driver-task-count {
+  width: 31px;
+  height: 31px;
+  border-radius: 63.3px;
+  -webkit-backdrop-filter: blur(1.9px);
+  backdrop-filter: blur(1.9px);
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, .15);
+  font-size: 16px;
+  font-weight: 400;
+  color: #4695f6;
+  line-height: 31px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.driver-task-count:hover {
+  border-color: #4695f6;
+}
+
+.name-abb {
+  line-height: 40px;
+  color: #fff;
+  font-size: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 0 auto;
+ // background-color:#4695f6;
+}
+
+.status-dot {
+  position: absolute;
+  bottom: 0;
+  z-index: 3;
+  width: 12.4px;
+  border-radius: 10px;
+  height: 12.4px;
+ // background-color: #999;
+  border: 2px solid #fff;
+
+}
+
+.no-result {
+  padding-top:200px;
+}
+
+.img-text {
+  margin-top: 6px;
+  display: block;
+  line-height: 14px;
+}
+
+.left-driver-list {
+  position: absolute;
+  width: 64px;
+}
+
+.middle-driver-list {
+  position: absolute;
+  left: 75px;
+  right: 40px;
+}
+
+.font-weight-style {
+  font-weight: 600;
+}
+
+.timeline-img p {
+  margin-top: 16px !important;
+}
+
+.driver-task-top {
+  top: 22px !important;
+}
+
+.no-records {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+}
+
+.full-width {
+  width: 100%;
+}
+

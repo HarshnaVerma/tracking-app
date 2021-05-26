@@ -1,0 +1,57 @@
+<!-- Container-fluid starts-->
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  color="#fff"
+  type="timer">
+  <!--  <p style="color: white" > Loading... </p>-->
+</ngx-spinner>
+<h2 mat-dialog-title>View Warehouse</h2>
+<mat-dialog-content>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <form class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-4 col-md-4">
+                <mat-form-field class = "full-width">
+                  <mat-label>Warehouse Address</mat-label>
+                  <input  matInput value = "{{warehouseAddress}}" readonly>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-4 col-md-4">
+                <mat-form-field class = "full-width">
+                  <mat-label>Warehouse Name</mat-label>
+                  <input  matInput value = "{{this.warehouseInfo['depotName']}}" readonly>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-4 col-md-4">
+                <mat-form-field class = "full-width">
+                  <mat-label>Warehouse Number</mat-label>
+                  <input  matInput value = "{{this.warehouseInfo['depotNumber']}}" readonly>
+                </mat-form-field>
+              </div>
+              <div class="col-md-4 col-md-4">
+                <mat-form-field class = "full-width">
+                  <mat-label>Warehouse Status</mat-label>
+                  <input  matInput value = "{{this.warehouseInfo['depotStatus']}}" readonly>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <app-right-info [createdBy]="this.warehouseInfo['createdBy']"
+          [createdOn]="this.warehouseInfo['createdOn']"
+          [modifiedBy]="this.warehouseInfo['modifiedBy']"
+          [modifiedOn]="this.warehouseInfo['modifiedOn']">
+          </app-right-info>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button color = "warn" mat-dialog-close cdkFocusInitial>Close</button>
+</mat-dialog-actions>
+<!-- Container-fluid Ends-->

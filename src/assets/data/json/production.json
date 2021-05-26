@@ -1,0 +1,19 @@
+{
+  "URL_STORAGE_SERVICE": "document/upload",
+  "URL_DRIVER": "driver",
+  "URL_WAREHOUSE": "warehouse",
+  "URL_UPDATE_WAREHOUSE": "update-warehouse",
+  "URL_DELETE_WAREHOUSE": "warehouse/depotId",
+  "URL_VEHICLE": "vehicle",
+  "URL_TRANSPORTER": "transporter",
+  "URL_ADD_ORDER": "order-insertion",
+  "URL_ORDER": "order",
+  "URL_TASK": "task",
+  "URL_TASK_STATUS": "task-status",
+  "URL_DRIVER_STATUS": "driver-status",
+  "URL_GET_WAREHOUSE_BY_ID": "warehouse/depoid/",
+  "URL_GET_TASK_BY_ID": "task/taskid/",
+  "URL_GET_COMPLETED_JOB": "completed-job",
+  "GET_DRIVER_SORTED_LIST": "driver/sorted",
+  "GET_ORDER_BY_STATUS": "order-status"
+}

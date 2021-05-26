@@ -1,0 +1,29 @@
+.rides-holder {
+  top: 90px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  -webkit-overflow-scrolling: touch;
+  overflow: auto;
+}
+
+
+.card {
+  position: relative;
+  border-radius: 0;
+  border: 1px solid #e5e5e5;
+  margin: 0;
+}
+
+.ride-row {
+  min-height: 90px;
+  line-height: 18px;
+  padding: 25px 0 11px 0;
+  overflow: auto;
+  position: relative;
+}
+
+.status-dot {
+  background-color: #ff0000;
+}

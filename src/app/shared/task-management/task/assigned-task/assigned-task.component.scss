@@ -1,0 +1,77 @@
+.rides-holder {
+  top: 90px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  -webkit-overflow-scrolling: touch;
+  overflow: auto;
+}
+
+
+.card {
+  position: relative;
+  border-radius: 0;
+  border: 1px solid #e5e5e5;
+  margin: 0;
+}
+
+.ride-row {
+  min-height: 90px;
+  line-height: 18px;
+  padding: 25px 0 11px 0;
+  overflow: auto;
+  position: relative;
+}
+
+.plus-sign {
+  font-size: 22px;
+}
+
+.ride-row-min-height {
+  min-height: 115px;
+}
+
+.img-text {
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #8b8888;
+}
+
+.time-line-heading {
+  margin-bottom: 5px !important;
+  font-size: 14px;
+}
+
+.badge-light-color {
+  background-color: #c4c4c6 !important;
+}
+
+.timeline-address {
+  font-size: 14px;
+  letter-spacing: .5px;
+  color: rgba(0,0,0,.5);
+  display:flex;
+}
+
+.time-line-address-span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 180px;
+}
+
+.name-abb-color {
+  background-color: #1394ff;
+}
+.badge-warning-text {
+  color: #fff;
+}
+
+.timeline-round {
+  width: 8px !important;
+  height:6px !important;
+  top:0 !important;
+}
+
+

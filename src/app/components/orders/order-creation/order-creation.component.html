@@ -1,0 +1,51 @@
+<!-- Container-fluid starts-->
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  color="#fff"
+  type="timer">
+  <!--  <p style="color: white" > Loading... </p>-->
+</ngx-spinner>
+<h2 mat-dialog-title>Add Order</h2>
+<mat-dialog-content>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <form class="card" [formGroup] = "addOrderFormGroup">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-4 col-md-4">
+                <mat-form-field class = "full-width">
+                  <mat-label>Order Description</mat-label>
+                  <input  matInput formControlName="orderDescription" >
+                  <mat-error *ngIf="hasError('orderDescription', 'required')">Order Description is required</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-4 col-md-4">
+                <mat-form-field class = "full-width">
+                  <mat-label>Length</mat-label>
+                  <input  matInput formControlName="length" appNumbersOnly>
+                  <mat-error *ngIf="hasError('length', 'required')">Length is required</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-4 col-md-4">
+                <mat-form-field class = "full-width">
+                  <mat-label>Weight</mat-label>
+                  <input  matInput formControlName="weight" appNumbersOnly>
+                  <mat-error *ngIf="hasError('weight', 'required')">Weight is required</mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+  <button mat-raised-button color="primary" [disabled]="!addOrderFormGroup.valid"
+          (click) = "createOrder()" cdkFocusInitial>Save</button>
+</mat-dialog-actions>
+<!-- Container-fluid Ends-->

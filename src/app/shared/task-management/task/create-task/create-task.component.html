@@ -1,0 +1,136 @@
+<!-- Container-fluid starts-->
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  color="#fff"
+  type="timer">
+  <!--  <p style="color: white" > Loading... </p>-->
+</ngx-spinner>
+<h2 mat-dialog-title>New Task</h2>
+<mat-dialog-content>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <form class="card" [formGroup]="createTaskFormGroup">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-6 col-md-6">
+                <mat-form-field class = "full-width">
+                  <mat-label>Name</mat-label>
+                  <input  matInput formControlName="name">
+                  <mat-error *ngIf="hasError('name', 'required')">Name is required</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-6 col-md-6">
+                <mat-form-field class = "full-width">
+                  <mat-label>Contact No.</mat-label>
+                  <span matPrefix>+91 &nbsp;</span>
+                  <input  matInput formControlName="contactNo" (keypress)="isNumberKey($event)">
+                  <mat-error *ngIf="hasError('contactNo', 'required')">Contact No is required</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-md-6 col-md-6">
+                <mat-form-field class="full-width">
+                  <mat-label>Email</mat-label>
+                  <input  matInput formControlName="email">
+                  <mat-error *ngIf="hasError('email', 'required')">Email is required</mat-error>
+                  <mat-error *ngIf="hasError('email', 'email')">Email must be a valid email address</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-md-6 col-md-6">
+                <mat-form-field class="full-width">
+                  <mat-label>Select Order Id</mat-label>
+                  <mat-select formControlName="orderId">
+                    <mat-option *ngFor = "let order of ordersInfo"
+                                [value]="order['orderId']">{{order['orderId']}}</mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="hasError('orderId', 'required')">Email is required</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-md-6 col-md-6">
+                <mat-form-field class = "full-width">
+                  <mat-label>Select Warehouse</mat-label>
+                  <mat-select formControlName="warehouse"
+                              (selectionChange)="getDepotCoordinates($event)">
+                    <mat-option *ngFor = "let warehouse of warehouseInfo"
+                                [value]="warehouse">{{warehouse['depotName']}}</mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="hasError('warehouse', 'required')">Warehouse is required</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-md-6 col-md-6">
+                <mat-form-field class = "full-width">
+                  <mat-label>Select Vehicle Type</mat-label>
+                  <mat-select formControlName="vehicleType">
+                    <mat-option *ngFor = "let vehicle of vehicleTypeArr"
+                                [value]="vehicle">{{vehicle}}</mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="hasError('vehicleType', 'required')">Vehicle Type is required</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-md-12">
+                <mat-form-field class="full-width">
+                  <mat-label>Drop Location</mat-label>
+                  <textarea matInput placeholder="Ex. 100 Main St" formControlName="dropLocation"
+                            value ="{{currentAddress}}"  #dropLocation></textarea>
+                  <mat-error *ngIf="hasError('dropLocation', 'required')">Drop Location is required</mat-error>
+                </mat-form-field>
+              </div>
+            <div class="col-md-6 col-md-6">
+              <mat-form-field class="full-width">
+                <mat-label>Driver Commission</mat-label>
+                <input  matInput formControlName="amount">
+                <mat-error *ngIf="hasError('amount', 'required')">Amount is required</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-md-6 col-md-6">
+              <mat-form-field class="full-width">
+                <mat-label>Payment Type</mat-label>
+                <mat-select formControlName="paymentType">
+                  <mat-option
+                    [value]="1">Cash On Delivery</mat-option>
+                </mat-select>
+                <mat-error *ngIf="hasError('paymentType', 'required')">Payment Type is required</mat-error>
+              </mat-form-field>
+            </div>
+              <div class="col-sm-12 col-md-12">
+                <mat-form-field class = "full-width">
+                  <mat-label>When</mat-label>
+                  <mat-select formControlName="when" (selectionChange) = "toTimePicker($event)">
+                    <mat-option
+                      [value]="1">Now</mat-option>
+                    <mat-option
+                      [value]="2">Schedule For Later</mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="hasError('when', 'required')">Please schedule pickup</mat-error>
+                </mat-form-field>
+              </div>
+                <div *ngIf = "showTimePicker" class="col-sm-6 col-md-6">
+                  <mat-form-field class = "full-width">
+                    <mat-label>Day</mat-label>
+                    <mat-select (selectionChange) = "getSelectedDay($event)">
+                      <mat-option
+                        [value]="1">Today</mat-option>
+                      <mat-option
+                        [value]="2">Tomorrow</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div *ngIf = "showTimePicker" class="col-sm-6 col-md-6">
+                  <ngb-timepicker [(ngModel)]="time" [ngModelOptions]="{standalone: true}" [meridian]="meridian" class="time-picker-custom"></ngb-timepicker>
+                </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+  <button mat-stroked-button color="primary" (click) = "assignDriver()"
+          [disabled]="!createTaskFormGroup.valid">Assign Drivers</button>
+  <button mat-raised-button color="primary" (click) = "createTask()"
+          [disabled]="!createTaskFormGroup.valid" cdkFocusInitial>Save</button>
+</mat-dialog-actions>
+<!-- Container-fluid Ends-->

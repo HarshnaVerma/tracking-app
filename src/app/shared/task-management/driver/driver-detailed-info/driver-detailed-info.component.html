@@ -1,0 +1,34 @@
+<!-- Container-fluid starts-->
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  color="#fff"
+  type="timer">
+  <!--  <p style="color: white" > Loading... </p>-->
+</ngx-spinner>
+<h2 mat-dialog-title>Driver Id #</h2>
+<mat-dialog-content>
+  <mat-horizontal-stepper [linear]="true">
+    <mat-step>
+      <ng-template matStepLabel>Details</ng-template>
+      <app-driver-details></app-driver-details>
+      <div>
+        <button mat-button mat-icon-button matStepperNext class="float-right">
+          <mat-icon mat-list-icon>arrow_forward</mat-icon>
+        </button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Timeline</ng-template>
+      <app-driver-timeline></app-driver-timeline>
+      <div>
+        <button mat-button mat-icon-button matStepperPrevious>
+          <mat-icon mat-list-icon>arrow_back</mat-icon>
+        </button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="warn" mat-dialog-close cdkFocusInitial>Close</button>
+</mat-dialog-actions>

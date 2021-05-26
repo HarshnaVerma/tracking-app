@@ -1,0 +1,85 @@
+<div class="card mt-2">
+  <div class="card-header">
+    <div class="row">
+      <div class="col-md-6">
+        <h4 class="mb-0 card-header-title">Driver Report</h4>
+      </div>
+      <div class="col-md-6">
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="driverReportFormGroup">
+      <div class="row">
+        <div class="col-sm-4 col-md-4">
+          <mat-form-field class="full-width">
+            <mat-label>Select Driver</mat-label>
+            <mat-select formControlName="driver">
+              <mat-option *ngFor="let driver of driverInfo"
+                          [value]="driver['driverId']">{{driver['driverFirstName']}} {{driver['driverLastName']}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="hasError('driver', 'required')">Driver Name is required</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <mat-form-field class="full-width">
+            <mat-label>Select Date</mat-label>
+            <input matInput [matDatepicker]="picker2" formControlName="date">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2 color="primary"></mat-datepicker>
+            <mat-error *ngIf="hasError('date', 'required')">Date is required</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-4 col-md-4">
+
+          <button style="margin-right: 2px" class="btn btn-primary btn-pill btn-air-primary" type="button"
+                  (click) = "searchData()" [disabled]="!driverReportFormGroup.valid">Search</button>
+
+          </div>
+      
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <div class="media feather-main">
+          <div class="feather-icon-block">
+            <app-feather-icons [icon]="'map-pin'"></app-feather-icons>
+          </div>
+          <div class="media-body align-self-center">
+            <h6>Total Trips</h6>
+            <p>{{totalTrips}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <div class="media feather-main">
+          <div class="feather-icon-block">
+            <app-feather-icons [icon]="'award'"></app-feather-icons>
+          </div>
+          <div class="media-body align-self-center">
+            <h6>Total Earning</h6>
+            <p>TSH {{totalEarning}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <app-driver-report-data-table *ngIf = "showTable" [tableData]="searchResponseData"></app-driver-report-data-table>
+  </div>
+</div>
+
+

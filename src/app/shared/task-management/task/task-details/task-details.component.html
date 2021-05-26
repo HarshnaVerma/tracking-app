@@ -1,0 +1,100 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <div class="row">
+        <div class="col-md-6">
+          <label class = "font-weight-style">Status</label>
+        </div>
+        <div class="col-md-6">
+          <label>{{taskInfo['taskStatus']}}</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-12">
+      <div class="row">
+        <div class="col-md-6">
+          <label  class = "font-weight-style">Delivery Date Time</label>
+        </div>
+        <div class="col-md-6">
+          <label>{{taskInfo['deliveryDate']}}</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-12">
+      <div class="row">
+        <div class="col-md-6">
+          <label  class = "font-weight-style">Driver</label>
+        </div>
+        <div class="col-md-6">
+          <label *ngIf = "taskInfo['driverResponse']">
+            <span *ngIf = "taskInfo['driverResponse'][0]">{{taskInfo['driverResponse'][0]['driverFirstName']}} {{taskInfo['driverResponse'][0]['driverLastName']}}</span>
+          </label>
+<!--          <ng-template #driver>-->
+<!--            <label>{{taskInfo['driverResponse'][0].driverFirstName}} {{taskInfo['driverResponse'][0].driverLastName}}</label>-->
+<!--          </ng-template>-->
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-12">
+      <div class="row">
+        <div class="col-md-6">
+          <label  class = "font-weight-style">Vehicle Type</label>
+        </div>
+        <div class="col-md-6">
+          <label>{{taskInfo['vehicleType']}}</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-12">
+      <div class="row">
+        <div class="col-md-6">
+          <label  class = "font-weight-style">Order Id</label>
+        </div>
+        <div class="col-md-6">
+          <label>{{taskInfo['orderId']}}</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-12">
+      <div class="row">
+        <div class="col-md-6">
+          <label  class = "font-weight-style">Warehouse Name</label>
+        </div>
+        <div class="col-md-6">
+          <label>{{taskInfo['wareHouseDetails']['depotName']}}</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-12">
+      <div class="row">
+        <div class="col-md-6">
+          <label  class = "font-weight-style">Warehouse Address</label>
+        </div>
+        <div class="col-md-6">
+          <label>{{wareHouseAddress}}</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-md-12">
+      <div class="row">
+        <div class="col-md-6">
+          <label  class = "font-weight-style">Amount</label>
+        </div>
+        <div class="col-md-6">
+          <label>{{getAmount(taskInfo['amount'])}}</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-12">
+      <div class="row">
+        <div class="col-md-6">
+          <label  class = "font-weight-style">Payment Mode</label>
+        </div>
+        <div class="col-md-6">
+          <label>{{taskInfo['paymentType']}}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+<!-- Container-fluid starts-->
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  color="#fff"
+  type="timer">
+  <!--  <p style="color: white" > Loading... </p>-->
+</ngx-spinner>
+<h2 mat-dialog-title>View Vehicle</h2>
+<mat-dialog-content>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <form class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-6 col-md-6">
+                <mat-form-field class = "full-width">
+                  <mat-label>Transporter</mat-label>
+                  <input  matInput value = "{{this.vehicleInfo['transporterName']}}" readonly>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-6 col-md-6">
+                <mat-form-field class = "full-width">
+                  <mat-label>Vehicle Type</mat-label>
+                  <input  matInput value = "{{this.vehicleInfo['vehicleType']}}" readonly>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-4 col-md-4">
+                <mat-form-field class="full-width">
+                  <mat-label>Vehicle Number</mat-label>
+                  <input  matInput value = "{{this.vehicleInfo['vehicleNumber']}}" readonly>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-4 col-md-4">
+                <mat-form-field class = "full-width">
+                  <mat-label>Driver</mat-label>
+                  <input  matInput value = "{{this.vehicleInfo['driverFirstName']}} {{this.vehicleInfo['driverLastName']}}" readonly>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-4 col-md-4">
+                <mat-form-field class = "full-width">
+                  <mat-label>Status</mat-label>
+                  <input  matInput value = "{{this.vehicleInfo['vehicleStatus']}}" readonly>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-6 col-md-6">
+                <label class="form-label">Vehicle RC</label>
+                <div class="form-group cursor-pointer mb-0">
+                  <img class="rc-default-image-size responsive" [src]="this.vehicleInfo['vehicleRCLink']"
+                       (click)="openImageModalRowDescription(0)" alt="#"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <app-right-info [createdBy]="this.vehicleInfo['createdBy']"
+                          [createdOn]="this.vehicleInfo['createdOn']"
+                          [modifiedBy]="this.vehicleInfo['modifiedBy']"
+                          [modifiedOn]="this.vehicleInfo['modifiedOn']">
+          </app-right-info>
+        </form>
+        <ks-modal-gallery [id]="1" [modalImages]="imagesRect"
+                          [plainGalleryConfig]="customPlainGalleryRowDescConfig" [currentImageConfig]="{downloadable: true}"
+                          [buttonsConfig]="buttonsConfigCustom" (buttonBeforeHook)="onButtonBeforeHook($event)"
+                          (buttonAfterHook)="onButtonAfterHook($event)">
+        </ks-modal-gallery>
+      </div>
+    </div>
+
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="warn" mat-dialog-close cdkFocusInitial>Close</button>
+</mat-dialog-actions>
+<!-- Container-fluid Ends-->

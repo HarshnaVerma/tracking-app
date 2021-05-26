@@ -1,0 +1,74 @@
+<div class="card mt-4">
+    <div class="card-body">
+        <div class="text-center">
+            
+<!--			<h6>Enter your Username and Password </h6>     -->
+        </div>
+        <form class="theme-form" [formGroup]="registerForm" #saveadmin (ngSubmit)="saveAdmin(saveAdmin)">
+            <div class="form-group">
+  <mat-form-field class="full-width-input">
+    <input matInput placeholder="User Name" formControlName="userName" required>
+    <mat-error>
+      Please provide a valid username
+    </mat-error>
+  </mat-form-field>
+            </div>
+        <div class="form-group">
+            <mat-form-field class="full-width-input">
+                <input matInput placeholder="E-mail Address" formControlName="email" required>
+                    <mat-error>
+                      Please provide a valid email address
+                    </mat-error>
+                  </mat-form-field>
+                            </div>
+            <div class="form-group">
+  <mat-form-field class="full-width-input">
+    <input matInput type="password" placeholder="Password" formControlName="password" required>
+    <mat-error>
+      Please provide a valid password
+    </mat-error>
+  </mat-form-field>
+            </div>
+<!--						<div class="checkbox p-0">-->
+<!--							<input id="checkbox1" type="checkbox">-->
+<!--							<label for="checkbox1">Remember me</label>-->
+<!--						</div>-->
+
+            <div class="form-group form-row mt-3 mb-0">
+                <button class="btn btn-primary btn-block btn-lg"
+                    type="submit"><span>Register</span>
+                </button>
+            </div>
+<!--						<div class="login-divider"></div>-->
+<!--						<div class="social mt-3">-->
+<!--							<div class="form-group btn-showcase d-flex">-->
+<!--								<button class="btn social-btn btn-fb d-inline-block" (click)="loginFacebook()">-->
+<!--									<i class="fa fa-facebook"></i>-->
+<!--								</button>-->
+<!--								<button class="btn social-btn btn-twitter d-inline-block" (click)="loginTwitter()">-->
+<!--									<i class="fa fa-twitter"></i>-->
+<!--								</button>-->
+<!--								<button class="btn social-btn btn-google d-inline-block" (click)="loginGoogle()">-->
+<!--									<i class="fa fa-google"></i>-->
+<!--								</button>-->
+<!--							</div>-->
+<!--						</div>-->
+
+        </form>
+
+        <div class="alert alert-success" [hidden]="!submitted">
+          Your registration is successful!
+        </div>
+    </div>
+</div>
+<!-- <div class="row">  
+    <div class="col-sm"></div>
+    <div class="col-sm">  
+        <div [hidden]="submitted">  
+           <h4>Registered SuccessFully!</h4>   
+        </div>        
+    </div>  
+    <div class="col-sm"></div>
+  </div>   -->
+
+  

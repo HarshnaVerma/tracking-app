@@ -1,0 +1,39 @@
+
+<div *ngFor="let task of unAssignedTaskInfo| filter:searchValueText" class="rides-holder cursor-pointer">
+  <div class="card bg-white">
+    <div class="ride-row ride-row-min-height">
+      <div class="left text-center">
+        <div class="name-abb name-abb-color" (click) = "assignDriverToTask(task)">
+          <span class="plus-sign">+</span>
+        </div>
+        <span class="img-text">Assign Driver</span>
+      </div>
+      <div (click) = "dialogService.taskDetailedInfo(task)">
+      <div class="middle">
+        <div class="timeline-small">
+          <div class="media">
+            <div class="timeline-round m-r-15 timeline-line-1 bg-primary time-line-dot">
+            </div>
+            <div class="media-body">
+              <h6 class="time-line-heading">{{getTime(task['deliveryDate'])}}</h6>
+              <h6 class="time-line-heading">{{task['customerName']}}</h6>
+              <div class="timeline-address">
+                <span class="time-line-address-span">{{task['dropAddress']}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="far-right driver-task-top">
+        <span class="badge badge-light badge-light-color">{{task['taskStatus']}}</span>
+      </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="no-result text-center" *ngIf="unAssignedTaskInfo === undefined || unAssignedTaskInfo.length === 0">
+  <span>No task available for the day</span>
+</div>
+

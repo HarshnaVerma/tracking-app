@@ -1,0 +1,20 @@
+<div class="form-group">
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th scope="col">Created By</th>
+      <th scope="col">Created On</th>
+      <th scope="col">Modified By</th>
+      <th scope="col">Modified On</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>{{createdBy}}</td>
+      <td>{{createdOn | date: 'dd-MM-yyyy'}}</td>
+      <td>{{modifiedBy}}</td>
+      <td>{{modifiedOn | date: 'dd-MM-yyyy'}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

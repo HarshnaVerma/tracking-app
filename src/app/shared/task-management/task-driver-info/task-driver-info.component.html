@@ -1,0 +1,40 @@
+<div class="customizer-links" [ngClass]="{'open' : infoArea }" id="inner-customizer">
+  <div class="nav flex-column nac-pills" id="c-pills-tab" role="tablist" aria-orientation="vertical">
+    <a href="javascript:void(0)" class="nav-link"
+       [ngClass]="{'active show': infoArea == 'task' }"
+       id="c-pills-home-tab" (click)="openInfo('task')">
+      <div class="settings"> <i class="icofont icofont-tasks"></i> </div>
+    </a>
+    <a href="javascript:void(0)" class="nav-link" [ngClass]="{'active show': infoArea == 'driver' }"
+       id="c-pills-profile-tab" (click)="openInfo('driver')">
+      <div class="settings color-settings"> <i class="icofont icofont-users"></i> </div>
+    </a>
+  </div>
+</div>
+<div class="customizer-contain" [ngClass]="{'open' : infoArea }">
+  <div class="tab-content" id="c-pills-tabContent">
+    <div class="customizer-header">
+      <i class="icofont-search icon-search margin-top-five" (click) = "showSearchBox()"></i>
+      <i class="icofont-close icon-close margin-top-five" (click)="infoArea = ''"></i>
+      <h5 *ngIf = "!showSearch; else search" class = "margin-top-five">{{title}}</h5>
+      <ng-template #search>
+         <i class="icofont-close icon-close margin-top-five" (click)="clearValues()"></i>
+        <label for="search-box-input">
+          <input #searchInput type = "text" class = "search-box" placeholder="Search.." [(ngModel)]="searchText"
+                 (keyup)="searchTerm(searchText)" autocomplete="off" id = "search-box-input">
+        </label>
+      </ng-template>
+<!--      <input type="text" name="search" placeholder="Search..">-->
+    </div>
+    <div class="customizer-body remove-padding-body custom-scrollbar">
+      <div class="tab-pane fade" [ngClass]="{'active show': infoArea == 'task' }" id="c-pills-home"
+           role="tabpanel" aria-labelledby="c-pills-home-tab">
+        <app-task-info [searchValue]="searchText"></app-task-info>
+      </div>
+      <div class="tab-pane fade" [ngClass]="{'active show': infoArea == 'driver' }" id="c-pills-profile"
+           role="tabpanel" aria-labelledby="c-pills-profile-tab">
+        <app-driver-info [searchValue]="searchText"></app-driver-info>
+      </div>
+    </div>
+  </div>
+</div>

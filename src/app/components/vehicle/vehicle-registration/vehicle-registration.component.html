@@ -1,0 +1,96 @@
+<!-- Container-fluid starts-->
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  color="#fff"
+  type="timer">
+  <!--  <p style="color: white" > Loading... </p>-->
+</ngx-spinner>
+<h2 mat-dialog-title>Add Vehicle</h2>
+<mat-dialog-content>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <form class="card" [formGroup] = "addVehicleFormGroup">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-6 col-md-6">
+                <mat-form-field class = "full-width">
+                  <mat-label>Select Transporter</mat-label>
+                  <mat-select formControlName="transporter">
+                    <mat-option *ngFor = "let transporter of transporterInfo"
+                                [value]="transporter['transporterId']">{{transporter['transporterName']}}</mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="hasError('transporter', 'required')">Transporter Name is required</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-6 col-md-6">
+                <mat-form-field class = "full-width">
+                  <mat-label>Select Vehicle Type</mat-label>
+                  <mat-select formControlName="vehicleType">
+                    <mat-option *ngFor = "let vehicleType of vehicleTypeArr"
+                                [value]="vehicleType">{{vehicleType}}</mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="hasError('vehicleType', 'required')">Vehicle Type is required</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-md-6 col-md-6">
+                <mat-form-field class="full-width">
+                  <mat-label>Vehicle Number</mat-label>
+                  <input  matInput formControlName="vehicleNumber">
+                  <mat-error *ngIf="hasError('vehicleNumber', 'required')">Vehicle Number is required</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-md-6 col-md-6">
+                <mat-form-field class = "full-width">
+                  <mat-label>Select Driver</mat-label>
+                  <mat-select formControlName="driver">
+                    <mat-option *ngFor = "let driver of driverInfo"
+                                [value]="driver['driverId']">{{driver['driverFirstName']}} {{driver['driverLastName']}}</mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="hasError('driver', 'required')">Driver Name is required</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-md-12">
+                <label class="form-label">Vehicle RC</label>
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group cursor-pointer mb-0">
+                      <img class="rc-default-image-size responsive" [src]="vehicleRcPictureUrl?
+                        vehicleRcPictureUrl:'assets/images/big-lightgallry/013.jpg'"
+                           (click)="openImageModalRowDescription(0)" alt="#"/>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="picture upload-button-padding">
+                      <button class="btn btn-pill btn-light btn-air-light" type="submit">
+                        <input class="picture-upload cursor-pointer" type="file"
+                               (change)="uploadImage($event , 'front')"/>
+                        <app-feather-icons class="upload-button-padding" [icon]="'upload-cloud'"></app-feather-icons>
+                        Upload
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <ks-modal-gallery [id]="1" [modalImages]="imagesRect"
+                          [plainGalleryConfig]="customPlainGalleryRowDescConfig"
+                          [currentImageConfig]="{downloadable: true}"
+                          [buttonsConfig]="buttonsConfigCustom" (buttonBeforeHook)="onButtonBeforeHook($event)"
+                          (buttonAfterHook)="onButtonAfterHook($event)">
+        </ks-modal-gallery>
+      </div>
+    </div>
+
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="warn" [mat-dialog-close] = false>Close</button>
+  <button mat-raised-button color="primary" (click) = "createVehicle()" cdkFocusInitial
+          [disabled]="!addVehicleFormGroup.valid">Save</button>
+</mat-dialog-actions>
+<!-- Container-fluid Ends-->

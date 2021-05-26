@@ -1,0 +1,10 @@
+{
+  "apiBaseUrlForStorageService": "http://172.105.42.229:40000/v1/resources/",
+  "imagePrefix": "https://tracking-system-gmagica.s3.ap-south-1.amazonaws.com/",
+  "appProductionEnv": "production",
+  "apiBaseUrlForDriverService": "http://172.105.42.229:31000/v1/resources/",
+  "apiBaseUrlForWarehouseService": "http://172.105.42.229:31002/v1/resources/",
+  "apiBaseUrlForOrderService": "http://172.105.42.229:31003/v1/resources/",
+  "apiBaseUrlForTaskService": "http://172.105.42.229:31001/v1/resources/",
+  "apiBaseUrlForUserService": "http://localhost:8080/api/auth/"
+}

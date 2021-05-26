@@ -1,0 +1,22 @@
+<div>
+  <igx-tabs type="fixed">
+    <igx-tabs-group label="UNASSIGNED">
+      <div>
+        <app-unassigned-task [searchValueText]="searchValue"
+        [unAssignedTaskInfo]="unAssignedTasks"></app-unassigned-task>
+      </div>
+    </igx-tabs-group>
+    <igx-tabs-group label="ASSIGNED">
+      <div>
+        <app-assigned-task [searchValueText]="searchValue"
+        [assignedTaskInfo]="assignedTasks"></app-assigned-task>
+      </div>
+    </igx-tabs-group>
+    <igx-tabs-group label="COMPLETED">
+      <div>
+        <app-completed-task [searchValueText]="searchValue"
+        [completedTaskInfo]="completedTasks"></app-completed-task>
+      </div>
+    </igx-tabs-group>
+  </igx-tabs>
+</div>

@@ -1,0 +1,53 @@
+<!-- Container-fluid starts-->
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  color="#fff"
+  type="timer">
+  <!--  <p style="color: white" > Loading... </p>-->
+</ngx-spinner>
+<h2 mat-dialog-title>Task Id #{{taskInfo['taskId']}}</h2>
+<mat-dialog-content>
+      <mat-horizontal-stepper [linear]="true">
+        <mat-step>
+          <ng-template matStepLabel>Details</ng-template>
+          <app-task-details [taskInfo]="taskInfoById"
+          [wareHouseAddress]="wareHouseAddress"></app-task-details>
+          <div>
+            <button mat-button mat-icon-button matStepperNext class="float-right">
+              <mat-icon mat-list-icon>arrow_forward</mat-icon>
+            </button>
+          </div>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Customer</ng-template>
+          <app-task-customer [taskInfo]="taskInfoById" [dropAddress]="dropAddress"></app-task-customer>
+          <div>
+            <button mat-button mat-icon-button matStepperPrevious>
+              <mat-icon mat-list-icon>arrow_back</mat-icon>
+            </button>
+            <button mat-button mat-icon-button matStepperNext class="float-right">
+              <mat-icon mat-list-icon>arrow_forward</mat-icon>
+            </button>
+          </div>
+        </mat-step>
+<!--        <mat-step>-->
+<!--          <ng-template matStepLabel>History</ng-template>-->
+<!--          <app-task-history></app-task-history>-->
+<!--          <div>-->
+<!--            <button mat-button mat-icon-button matStepperPrevious>-->
+<!--              <mat-icon mat-list-icon>arrow_back</mat-icon>-->
+<!--            </button>-->
+<!--&lt;!&ndash;            <button mat-raised-button color="warn" class="float-right" mat-dialog-close>Close</button>&ndash;&gt;-->
+<!--            &lt;!&ndash;        <button mat-button mat-icon-button matStepperNext class="float-right">&ndash;&gt;-->
+<!--            &lt;!&ndash;          <mat-icon mat-list-icon>arrow_forward</mat-icon>&ndash;&gt;-->
+<!--            &lt;!&ndash;        </button>&ndash;&gt;-->
+<!--            &lt;!&ndash;                  <button mat-raised-button type="submit" class="btn btn-warning mt-2 float-right" (click)="onSave()">Send Email&ndash;&gt;-->
+<!--            &lt;!&ndash;                  </button>&ndash;&gt;-->
+<!--          </div>-->
+<!--        </mat-step>-->
+      </mat-horizontal-stepper>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="warn" mat-dialog-close cdkFocusInitial>Close</button>
+</mat-dialog-actions>

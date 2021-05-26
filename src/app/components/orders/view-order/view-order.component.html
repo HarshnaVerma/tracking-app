@@ -1,0 +1,55 @@
+<h2 mat-dialog-title>View Order</h2>
+<mat-dialog-content>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <form class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-4 col-md-4">
+                <mat-form-field class = "full-width">
+                  <mat-label>Order Id</mat-label>
+                  <input  matInput value = "{{this.ordersInfo['orderId']}}" readonly>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-4 col-md-4">
+                <mat-form-field class = "full-width">
+                  <mat-label>Order Description</mat-label>
+                  <input  matInput value = "{{this.ordersInfo['orderDescription']}}" readonly>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-4 col-md-4">
+                <mat-form-field class = "full-width">
+                  <mat-label>Length</mat-label>
+                  <input  matInput value = "{{this.ordersInfo['length']}}" readonly>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-4 col-md-4">
+                <mat-form-field class = "full-width">
+                  <mat-label>Weight</mat-label>
+                 <input  matInput value = "{{this.ordersInfo['weight']}}" readonly>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-4 col-md-4">
+                <mat-form-field class = "full-width">
+                  <mat-label>Status</mat-label>
+                  <input  matInput value = "{{this.ordersInfo['status']}}" readonly>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <app-right-info [createdBy]="this.ordersInfo['createdBy']"
+                          [createdOn]="this.ordersInfo['createdOn']"
+                          [modifiedBy]="this.ordersInfo['modifiedBy']"
+                          [modifiedOn]="this.ordersInfo['modifiedOn']">
+          </app-right-info>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="warn" mat-dialog-close cdkFocusInitial>Close</button>
+</mat-dialog-actions>
+<!-- Container-fluid Ends-->

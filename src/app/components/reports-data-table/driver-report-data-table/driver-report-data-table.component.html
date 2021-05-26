@@ -1,0 +1,33 @@
+<div class = "data-table-div">
+  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+         class="row-border hover table-striped" style="width: 100%">
+    <thead>
+    <tr>
+      <th>Task ID</th>
+      <th>Order ID</th>
+      <th>Warehouse Location</th>
+      <th>Warehouse Number</th>
+      <th>Drop Location</th>
+      <th>Amount</th>
+      <th>Customer Name</th>
+      <th>Customer Number</th>
+      <th>Delivery Date And Time</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor = "let item of tableData">
+      <td>{{item['taskDetail']['taskId']}}</td>
+      <td>{{item['taskDetail']['orderId']}}</td>
+      <td>{{item['taskDetail']['wareHouseDetails']['depotAddress']}}</td>
+      <td>{{item['taskDetail']['wareHouseDetails']['depotNumber']}}</td>
+      <td>{{item['taskDetail']['dropAddress']}}</td>
+      <td>{{item['taskDetail']['totalFare']}}</td>
+      <td>{{item['taskDetail']['customerName']}}</td>
+      <td>{{item['taskDetail']['contactNumber']}}</td>
+      <td>{{item['taskDetail']['deliveryDate']}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+

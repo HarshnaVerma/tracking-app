@@ -1,0 +1,63 @@
+<!-- Container-fluid starts-->
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  color="#fff"
+  type="timer">
+  <!--  <p style="color: white" > Loading... </p>-->
+</ngx-spinner>
+<h2 mat-dialog-title>Add Warehouse</h2>
+<mat-dialog-content>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <form class="card" [formGroup] = "addWarehouseFormGroup">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-4 col-md-4">
+                <mat-form-field class = "full-width">
+                  <mat-label>Warehouse Address</mat-label>
+                    <input  matInput (keydown.enter)="$event.preventDefault()"
+                            formControlName="address" #warehouseLocation>
+                  <mat-error *ngIf="hasError('address', 'required')">Warehouse address is required</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-4 col-md-4">
+                <mat-form-field class = "full-width">
+                  <mat-label>Warehouse Name</mat-label>
+                  <input  matInput formControlName="warehouseName">
+                  <mat-error *ngIf="hasError('warehouseName', 'required')">Warehouse name is required</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-4 col-md-4">
+                <mat-form-field class = "full-width">
+                  <mat-label>Warehouse Number</mat-label>
+                  <input  matInput formControlName="warehouseNumber" appNumbersOnly>
+                  <mat-error *ngIf="hasError('warehouseNumber', 'required')">Warehouse number is required</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-md-4 col-md-4">
+                <mat-form-field class = "full-width">
+                  <mat-label>Warehouse Status</mat-label>
+                  <mat-select formControlName="status">
+                    <mat-option *ngFor="let status of statusData" [value]="status">
+                      {{status}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="hasError('status', 'required')">Warehouse status is required</mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+  <button mat-raised-button color="primary" [disabled]="!addWarehouseFormGroup.valid"
+          (click) = "createWarehouse()" cdkFocusInitial>Save</button>
+</mat-dialog-actions>
+<!-- Container-fluid Ends-->

@@ -1,0 +1,13 @@
+<div class = "container-fluid">
+  <div class="map-js-height">
+    <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" [disableDefaultUI]="false"
+             [zoomControl]="false" (mapClick)="mapClicked($event)">
+      <agm-marker *ngFor="let m of markers; let i = index" [latitude]="m.lat" [longitude]="m.lng"
+                  [label]="m.label" [draggable]="false">
+        <agm-info-window>
+          <strong>InfoWindow content</strong>
+        </agm-info-window>
+      </agm-marker>
+    </agm-map>
+  </div>
+</div>

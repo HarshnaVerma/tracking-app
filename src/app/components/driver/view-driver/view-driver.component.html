@@ -1,0 +1,123 @@
+<!-- Container-fluid starts-->
+<ngx-spinner
+  bdColor = "rgba(0, 0, 0, 0.8)"
+  size = "medium"
+  color = "#fff"
+  type= "timer">
+  <!--  <p style="color: white" > Loading... </p>-->
+</ngx-spinner>
+<h2 mat-dialog-title>View Driver</h2>
+<mat-dialog-content>
+<div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card">
+            <div class="card-body">
+              <div class="text-center">
+                <img class="driver-image-size rounded-circle" [src]="this.driverInfo.driverProfileImageLink? driverProfileImageUrl:'/assets/images/user/user-new.png'" alt="#">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <form class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-6 col-md-6">
+                  <mat-form-field class="full-width">
+                    <mat-label>First name</mat-label>
+                    <input  matInput value = "{{this.driverInfo['driverFirstName']}}" readonly>
+                  </mat-form-field>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                  <mat-form-field class="full-width">
+                    <mat-label>Last name</mat-label>
+                    <input  matInput value = "{{this.driverInfo['driverLastName']}}" readonly>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6 col-md-6">
+                  <mat-form-field class="full-width">
+                    <mat-label>Contact No.</mat-label>
+                    <span matPrefix>+91 &nbsp;</span>
+                    <input  matInput  value = "{{this.driverInfo['driverContact']}}" readonly>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6 col-md-6">
+                  <mat-form-field class="full-width">
+                    <mat-label>Email</mat-label>
+                    <input  matInput  value = "{{this.driverInfo['driverEmail']}}" readonly>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-12">
+                  <mat-form-field class="full-width">
+                    <mat-label>Address</mat-label>
+                    <textarea matInput value = "{{driverAddress}}" readonly></textarea>
+                  </mat-form-field>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                  <mat-form-field class="full-width">
+                    <mat-label>City</mat-label>
+                    <input  matInput value = "{{this.driverInfo['city']}}" readonly>
+                  </mat-form-field>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                  <mat-form-field class="full-width">
+                    <mat-label>Postal Code</mat-label>
+                    <input  matInput value = "{{this.driverInfo['pinCode']}}" readonly>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-3">
+                  <mat-form-field class="full-width">
+                    <mat-label>Country</mat-label>
+                    <input  matInput value = "{{this.driverInfo['country']}}" readonly>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-3">
+                  <mat-form-field class="full-width">
+                    <mat-label>Status</mat-label>
+                    <input  matInput value = "{{this.driverInfo['driverStatus']}}" readonly>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group cursor-pointer mb-0">
+                        <label class="form-label">Valid ID Proof Front</label>
+                        <img class = "id-proof-picture-dialog-img responsive" [src]="this.driverInfo.driverIdLink?
+                        driverFrontIdLink:'assets/images/big-lightgallry/013.jpg'"
+                             (click)="openImageModalRowDescription(0)" alt = "Front Id Image"/>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group cursor-pointer mb-0">
+                        <label class="form-label">Valid ID Proof Back</label>
+                        <img class = "id-proof-picture-dialog-img responsive"
+                             [src]="this.driverInfo.driverIdBackLink?
+                        driverBackIdLink:'assets/images/big-lightgallry/013.jpg'"
+                             (click)="openImageModalRowDescription(1)" alt = "Back Id Image"/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <app-right-info [createdBy]="this.driverInfo['createdBy']"
+                            [createdOn]="this.driverInfo['createdOn']"
+                            [modifiedBy]="this.driverInfo['modifiedBy']"
+                            [modifiedOn]="this.driverInfo['modifiedOn']">
+            </app-right-info>
+          </form>
+
+          <ks-modal-gallery [id]="1" [modalImages]="imagesRect"
+                            [plainGalleryConfig]="customPlainGalleryRowDescConfig" [currentImageConfig]="{downloadable: true}"
+                            [buttonsConfig]="buttonsConfigCustom" (buttonBeforeHook)="onButtonBeforeHook($event)"
+                            (buttonAfterHook)="onButtonAfterHook($event)">
+          </ks-modal-gallery>
+        </div>
+      </div>
+</div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="warn" mat-dialog-close cdkFocusInitial>Close</button>
+</mat-dialog-actions>
+<!-- Container-fluid Ends-->

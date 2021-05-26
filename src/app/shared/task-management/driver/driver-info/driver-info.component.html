@@ -1,0 +1,23 @@
+<div>
+  <igx-tabs type="fixed">
+    <igx-tabs-group label="FREE">
+      <div>
+        <app-free-driver [searchValueText]="searchValue"
+        [freeDriverList] = "freeDrivers"></app-free-driver>
+      </div>
+    </igx-tabs-group>
+    <igx-tabs-group label="BUSY">
+      <div>
+        <app-busy-driver [searchValueText]="searchValue"
+        [busyDriverList] = "busyDrivers"></app-busy-driver>
+      </div>
+    </igx-tabs-group>
+    <igx-tabs-group label="INACTIVE">
+      <div>
+        <app-inactive-driver [searchValueText]="searchValue"
+        [inActiveDriverList]="inactiveDrivers"></app-inactive-driver>
+      </div>
+    </igx-tabs-group>
+  </igx-tabs>
+</div>
+

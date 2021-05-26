@@ -1,0 +1,49 @@
+<!-- Container-fluid starts-->
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  color="#fff"
+  type="timer">
+  <!--  <p style="color: white" > Loading... </p>-->
+</ngx-spinner>
+<h2 mat-dialog-title>Assign Drivers</h2>
+<mat-dialog-content *ngIf = "loadPage">
+    <mat-form-field class="full-width">
+      <mat-label>Search</mat-label>
+      <input type="text" [(ngModel)]="searchText" matInput placeholder="Search...">
+      <mat-icon matSuffix>person_search</mat-icon>
+    </mat-form-field>
+  <div *ngFor="let driver of driverListArr| filter: searchText; let i=index;" class="ride-row">
+    <div class="left-driver-list text-center">
+      <div [style.background-color]="driver['driverDetails']['driverColorCode']" class="name-abb">
+        <span>{{customizerService.getDriverNameFirstLetter(driver['driverDetails']['driverFirstName'])}}</span>
+        <span class="status-dot"></span>
+      </div>
+    </div>
+    <div class="middle-driver-list">
+      <div class="driver-info-list">
+        <span class="driver-name-list">{{driver['driverDetails']['driverFirstName']}} {{driver['driverDetails']['driverLastName']}}</span>
+        <div class="shadow-info">{{driver['driverDetails']['driverJobStatus']}}
+          {{driver['remaningDistance']}} <span>Km</span></div>
+      </div>
+    </div>
+    <div class="far-right right-custom">
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input"
+               (change) = "selectedDrivers(driver['driverDetails']['driverId'], $event)"
+               [checked] = "isAddedToList(driver['driverDetails']['driverId'])" id="custom-checkbox{{i}}">
+        <label class="custom-control-label" for="custom-checkbox{{i}}"></label>
+      </div>
+<!--      <div class="driver-task-count" placement="left" ngbTooltip="{{toolTipText}}">0</div>-->
+<!--      <div class="shadow-info">Task</div>-->
+    </div>
+  </div>
+  <div *ngIf = "driverListArr.length === 0">
+    <span>No Drivers Available</span>
+  </div>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="warn" (click) = "closeDialog()" cdkFocusInitial>Close</button>
+</mat-dialog-actions>
+<!-- Container-fluid Ends-->

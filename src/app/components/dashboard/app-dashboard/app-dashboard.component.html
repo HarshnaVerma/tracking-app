@@ -1,0 +1,19 @@
+<!-- Container-fluid starts-->
+  <div class = "card mt-2">
+    <div class="card-header">
+      <form class="search-form">
+        <div class="form-group m-0">
+          <label>
+            <input class="form-control-plaintext" type="search" placeholder="Search.."
+                   value = "{{currentAddress}}" (keydown.enter)="$event.preventDefault()" #searchLocation>
+          </label>
+        </div>
+      </form>
+    </div>
+    <div>
+      <app-google-map [latitude]="latitude"
+      [longitude]="longitude"></app-google-map>
+    </div>
+
+  </div>
+<!-- Container-fluid Ends-->
